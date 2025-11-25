@@ -9,34 +9,29 @@
         body { background: #0f1028; color: white; font-family: 'Poppins', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
         .container { width: 100%; max-width: 600px; }
         h2 { text-align: center; color: #FFD700; margin-bottom: 20px; }
-        
-        /* Accordion Style */
         .section { background: #2a2d6e; border-radius: 8px; margin-bottom: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
         .section-header { padding: 15px; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
         .section-header:hover { background: rgba(255,255,255,0.05); }
         .section-content { padding: 15px; display: none; }
         .section-content.active { display: block; }
-        
         label { font-size: 0.85rem; color: #cfcfcf; display: block; margin-top: 10px; }
         input { width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white; outline: none; }
         input:focus { border-color: #00c853; }
-        
         .btn-save { width: 100%; padding: 12px; background: #00c853; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 15px; }
         .btn-save:hover { background: #009624; }
-        
         .subtitle { color: #FFD700; margin-top: 15px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>⚙️ Master Admin Panel</h2>
+        <!-- Icon removed as requested -->
+        <h2>Master Admin Panel</h2>
 
         <!-- 1. General & Logo -->
         <div class="section">
             <div class="section-header" onclick="toggle(this)">1. General & Logo <span>▼</span></div>
             <div class="section-content">
-                <label>Main Profile Logo URL:</label>
-                <input type="text" id="logo">
+                <label>Main Profile Logo URL:</label><input type="text" id="logo">
                 <button class="btn-save" onclick="saveGeneral()">Save General Info</button>
             </div>
         </div>
@@ -75,36 +70,19 @@
             <div class="section-header" onclick="toggle(this)">4. Bank Details <span>▼</span></div>
             <div class="section-content">
                 <div class="subtitle">Bank of Ceylon (BOC)</div>
-                <input type="text" id="boc_acc" placeholder="Account Number">
-                <input type="text" id="boc_name" placeholder="Account Name">
-                <input type="text" id="boc_branch" placeholder="Branch">
-
+                <input type="text" id="boc_acc" placeholder="Account Number"><input type="text" id="boc_name" placeholder="Account Name"><input type="text" id="boc_branch" placeholder="Branch">
                 <div class="subtitle">People's Bank</div>
-                <input type="text" id="peo_acc" placeholder="Account Number">
-                <input type="text" id="peo_name" placeholder="Account Name">
-                <input type="text" id="peo_branch" placeholder="Branch">
-
+                <input type="text" id="peo_acc" placeholder="Account Number"><input type="text" id="peo_name" placeholder="Account Name"><input type="text" id="peo_branch" placeholder="Branch">
                 <div class="subtitle">NSB</div>
-                <input type="text" id="nsb_acc" placeholder="Account Number">
-                <input type="text" id="nsb_name" placeholder="Account Name">
-                <input type="text" id="nsb_branch" placeholder="Branch">
-
+                <input type="text" id="nsb_acc" placeholder="Account Number"><input type="text" id="nsb_name" placeholder="Account Name"><input type="text" id="nsb_branch" placeholder="Branch">
                 <div class="subtitle">Sampath</div>
-                <input type="text" id="samp_acc" placeholder="Account Number">
-                <input type="text" id="samp_name" placeholder="Account Name">
-                <input type="text" id="samp_branch" placeholder="Branch">
-
+                <input type="text" id="samp_acc" placeholder="Account Number"><input type="text" id="samp_name" placeholder="Account Name"><input type="text" id="samp_branch" placeholder="Branch">
                 <div class="subtitle">iPay</div>
-                <input type="text" id="ipay_acc" placeholder="Mobile Number">
-                <input type="text" id="ipay_name" placeholder="Name">
-
+                <input type="text" id="ipay_acc" placeholder="Mobile Number"><input type="text" id="ipay_name" placeholder="Name">
                 <div class="subtitle">Ez Cash</div>
-                <input type="text" id="ez_acc" placeholder="Mobile Number">
-                <input type="text" id="ez_name" placeholder="Name">
-
+                <input type="text" id="ez_acc" placeholder="Mobile Number"><input type="text" id="ez_name" placeholder="Name">
                 <div class="subtitle">Binance</div>
                 <input type="text" id="bin_acc" placeholder="ID">
-                
                 <button class="btn-save" onclick="saveBanks()">Save Banks</button>
             </div>
         </div>
@@ -113,57 +91,42 @@
         <div class="section">
             <div class="section-header" onclick="toggle(this)">5. Withdrawal Details <span>▼</span></div>
             <div class="section-content">
-                <div class="subtitle">1xBet</div>
-                <input type="text" id="x_city" placeholder="City">
-                <input type="text" id="x_st" placeholder="Street">
-                
-                <div class="subtitle">Melbet</div>
-                <input type="text" id="mel_city" placeholder="City">
-                <input type="text" id="mel_st" placeholder="Street">
-
-                <div class="subtitle">Winwin</div>
-                <input type="text" id="win_city" placeholder="City">
-                <input type="text" id="win_st" placeholder="Street">
-
-                <div class="subtitle">888Starz</div>
-                <input type="text" id="e_city" placeholder="City">
-                <input type="text" id="e_st" placeholder="Street">
-
-                <div class="subtitle">GoldPari</div>
-                <input type="text" id="gold_city" placeholder="City">
-                <input type="text" id="gold_st" placeholder="Street">
-
-                <div class="subtitle">Dbbet</div>
-                <input type="text" id="db_city" placeholder="City">
-                <input type="text" id="db_st" placeholder="Street">
-
-                <div class="subtitle">Mostbet</div>
-                <input type="text" id="most_city" placeholder="City">
-                <input type="text" id="most_st" placeholder="Street">
-
-                <div class="subtitle">PariPulse</div>
-                <input type="text" id="pari_city" placeholder="City">
-                <input type="text" id="pari_st" placeholder="Street">
-
-                <div class="subtitle">Coldbet</div>
-                <input type="text" id="cold_city" placeholder="City">
-                <input type="text" id="cold_st" placeholder="Street">
-
-                <div class="subtitle">Linebet</div>
-                <input type="text" id="line_city" placeholder="City">
-                <input type="text" id="line_st" placeholder="Street">
-
+                <div class="subtitle">1xBet</div><input type="text" id="x_city" placeholder="City"><input type="text" id="x_st" placeholder="Street">
+                <div class="subtitle">Melbet</div><input type="text" id="mel_city" placeholder="City"><input type="text" id="mel_st" placeholder="Street">
+                <div class="subtitle">Winwin</div><input type="text" id="win_city" placeholder="City"><input type="text" id="win_st" placeholder="Street">
+                <div class="subtitle">888Starz</div><input type="text" id="e_city" placeholder="City"><input type="text" id="e_st" placeholder="Street">
+                <div class="subtitle">GoldPari</div><input type="text" id="gold_city" placeholder="City"><input type="text" id="gold_st" placeholder="Street">
+                <div class="subtitle">Dbbet</div><input type="text" id="db_city" placeholder="City"><input type="text" id="db_st" placeholder="Street">
+                <div class="subtitle">Mostbet</div><input type="text" id="most_city" placeholder="City"><input type="text" id="most_st" placeholder="Street">
+                <div class="subtitle">PariPulse</div><input type="text" id="pari_city" placeholder="City"><input type="text" id="pari_st" placeholder="Street">
+                <div class="subtitle">Coldbet</div><input type="text" id="cold_city" placeholder="City"><input type="text" id="cold_st" placeholder="Street">
+                <div class="subtitle">Linebet</div><input type="text" id="line_city" placeholder="City"><input type="text" id="line_st" placeholder="Street">
                 <button class="btn-save" onclick="saveWithdraw()">Save Withdrawal Info</button>
+            </div>
+        </div>
+
+        <!-- 6. Registration Links -->
+        <div class="section">
+            <div class="section-header" onclick="toggle(this)">6. Quick Registration Links <span>▼</span></div>
+            <div class="section-content">
+                <label>1xBet Link:</label><input type="text" id="link_1x">
+                <label>Melbet Link:</label><input type="text" id="link_mel">
+                <label>Winwin Link:</label><input type="text" id="link_win">
+                <label>888Starz Link:</label><input type="text" id="link_888">
+                <label>GoldPari Link:</label><input type="text" id="link_gold">
+                <label>Mostbet Link:</label><input type="text" id="link_most">
+                <label>PariPulse Link:</label><input type="text" id="link_pari">
+                <label>Coldbet Link:</label><input type="text" id="link_cold">
+                <label>Dbbet Link:</label><input type="text" id="link_db">
+                <label>Linebet Link:</label><input type="text" id="link_line">
+                <button class="btn-save" onclick="saveRegLinks()">Save Reg Links</button>
             </div>
         </div>
 
     </div>
 
     <script>
-        function toggle(header) {
-            const content = header.nextElementSibling;
-            content.classList.toggle('active');
-        }
+        function toggle(header) { const content = header.nextElementSibling; content.classList.toggle('active'); }
     </script>
 
     <script type="module">
@@ -178,68 +141,22 @@
         get(ref(db)).then((snapshot) => {
             const data = snapshot.val();
             if(data) {
-                // Logo
                 if(data.appData) document.getElementById('logo').value = data.appData.logo || "";
-                // Slider
-                if(data.sliderImages) {
-                    ['img1','img2','img3','img4'].forEach(k => document.getElementById(k).value = data.sliderImages[k] || "");
-                }
-                // Links
-                if(data.links) {
-                    ['wa1','wa2','call1','call2','tg','email','fb','yt','vid'].forEach(k => document.getElementById(k).value = data.links[k] || "");
-                }
-                // Banks
-                if(data.banks) {
-                    for(let k in data.banks) { if(document.getElementById(k)) document.getElementById(k).value = data.banks[k]; }
-                }
-                // Withdraw
-                if(data.withdraw) {
-                    for(let k in data.withdraw) { if(document.getElementById(k)) document.getElementById(k).value = data.withdraw[k]; }
-                }
+                if(data.sliderImages) { ['img1','img2','img3','img4'].forEach(k => document.getElementById(k).value = data.sliderImages[k] || ""); }
+                if(data.links) { ['wa1','wa2','call1','call2','tg','email','fb','yt','vid'].forEach(k => document.getElementById(k).value = data.links[k] || ""); }
+                if(data.banks) { for(let k in data.banks) { if(document.getElementById(k)) document.getElementById(k).value = data.banks[k]; } }
+                if(data.withdraw) { for(let k in data.withdraw) { if(document.getElementById(k)) document.getElementById(k).value = data.withdraw[k]; } }
+                if(data.regLinks) { for(let k in data.regLinks) { if(document.getElementById(k)) document.getElementById(k).value = data.regLinks[k]; } }
             }
         });
 
         // Save Functions
-        window.saveGeneral = () => {
-            update(ref(db, 'appData'), { logo: document.getElementById('logo').value }).then(()=>alert('Saved!'));
-        };
-
-        window.saveSlider = () => {
-            update(ref(db, 'sliderImages'), {
-                img1: document.getElementById('img1').value,
-                img2: document.getElementById('img2').value,
-                img3: document.getElementById('img3').value,
-                img4: document.getElementById('img4').value
-            }).then(()=>alert('Saved!'));
-        };
-
-        window.saveLinks = () => {
-            update(ref(db, 'links'), {
-                wa1: document.getElementById('wa1').value,
-                wa2: document.getElementById('wa2').value,
-                call1: document.getElementById('call1').value,
-                call2: document.getElementById('call2').value,
-                tg: document.getElementById('tg').value,
-                email: document.getElementById('email').value,
-                fb: document.getElementById('fb').value,
-                yt: document.getElementById('yt').value,
-                vid: document.getElementById('vid').value
-            }).then(()=>alert('Saved!'));
-        };
-
-        window.saveBanks = () => {
-            let updates = {};
-            const fields = ['boc_acc','boc_name','boc_branch','peo_acc','peo_name','peo_branch','nsb_acc','nsb_name','nsb_branch','samp_acc','samp_name','samp_branch','ipay_acc','ipay_name','ez_acc','ez_name','bin_acc'];
-            fields.forEach(f => updates[f] = document.getElementById(f).value);
-            update(ref(db, 'banks'), updates).then(()=>alert('Saved!'));
-        };
-
-        window.saveWithdraw = () => {
-            let updates = {};
-            const fields = ['x_city','x_st','mel_city','mel_st','win_city','win_st','e_city','e_st','gold_city','gold_st','db_city','db_st','most_city','most_st','pari_city','pari_st','cold_city','cold_st','line_city','line_st'];
-            fields.forEach(f => updates[f] = document.getElementById(f).value);
-            update(ref(db, 'withdraw'), updates).then(()=>alert('Saved!'));
-        };
+        window.saveGeneral = () => { update(ref(db, 'appData'), { logo: document.getElementById('logo').value }).then(()=>alert('Saved!')); };
+        window.saveSlider = () => { update(ref(db, 'sliderImages'), { img1: document.getElementById('img1').value, img2: document.getElementById('img2').value, img3: document.getElementById('img3').value, img4: document.getElementById('img4').value }).then(()=>alert('Saved!')); };
+        window.saveLinks = () => { update(ref(db, 'links'), { wa1: document.getElementById('wa1').value, wa2: document.getElementById('wa2').value, call1: document.getElementById('call1').value, call2: document.getElementById('call2').value, tg: document.getElementById('tg').value, email: document.getElementById('email').value, fb: document.getElementById('fb').value, yt: document.getElementById('yt').value, vid: document.getElementById('vid').value }).then(()=>alert('Saved!')); };
+        window.saveBanks = () => { let updates = {}; const fields = ['boc_acc','boc_name','boc_branch','peo_acc','peo_name','peo_branch','nsb_acc','nsb_name','nsb_branch','samp_acc','samp_name','samp_branch','ipay_acc','ipay_name','ez_acc','ez_name','bin_acc']; fields.forEach(f => updates[f] = document.getElementById(f).value); update(ref(db, 'banks'), updates).then(()=>alert('Saved!')); };
+        window.saveWithdraw = () => { let updates = {}; const fields = ['x_city','x_st','mel_city','mel_st','win_city','win_st','e_city','e_st','gold_city','gold_st','db_city','db_st','most_city','most_st','pari_city','pari_st','cold_city','cold_st','line_city','line_st']; fields.forEach(f => updates[f] = document.getElementById(f).value); update(ref(db, 'withdraw'), updates).then(()=>alert('Saved!')); };
+        window.saveRegLinks = () => { let updates = {}; const fields = ['link_1x','link_mel','link_win','link_888','link_gold','link_most','link_pari','link_cold','link_db','link_line']; fields.forEach(f => updates[f] = document.getElementById(f).value); update(ref(db, 'regLinks'), updates).then(()=>alert('Saved!')); };
     </script>
 </body>
 </html>
