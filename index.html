@@ -24,7 +24,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Icon removed as requested -->
         <h2>Master Admin Panel</h2>
 
         <!-- 1. General & Logo -->
@@ -38,7 +37,7 @@
 
         <!-- 2. Slider -->
         <div class="section">
-            <div class="section-header" onclick="toggle(this)">2. Image Slider <span>▼</span></div>
+            <div class="section-header" onclick="toggle(this)">2. Image Slider (Updates Every 3s) <span>▼</span></div>
             <div class="section-content">
                 <label>Image 1 URL:</label><input type="text" id="img1">
                 <label>Image 2 URL:</label><input type="text" id="img2">
@@ -48,26 +47,9 @@
             </div>
         </div>
 
-        <!-- 3. Contact Links -->
+        <!-- 3. Bank Details -->
         <div class="section">
-            <div class="section-header" onclick="toggle(this)">3. Contact Links <span>▼</span></div>
-            <div class="section-content">
-                <label>WhatsApp 1 Link:</label><input type="text" id="wa1">
-                <label>WhatsApp 2 Link:</label><input type="text" id="wa2">
-                <label>Call 1 (tel:number):</label><input type="text" id="call1">
-                <label>Call 2 (tel:number):</label><input type="text" id="call2">
-                <label>Telegram Link:</label><input type="text" id="tg">
-                <label>Email Link (mailto:):</label><input type="text" id="email">
-                <label>Facebook Link:</label><input type="text" id="fb">
-                <label>YouTube Link:</label><input type="text" id="yt">
-                <label>Support Video Link:</label><input type="text" id="vid">
-                <button class="btn-save" onclick="saveLinks()">Save Links</button>
-            </div>
-        </div>
-
-        <!-- 4. Bank Details -->
-        <div class="section">
-            <div class="section-header" onclick="toggle(this)">4. Bank Details <span>▼</span></div>
+            <div class="section-header" onclick="toggle(this)">3. Bank Details <span>▼</span></div>
             <div class="section-content">
                 <div class="subtitle">Bank of Ceylon (BOC)</div>
                 <input type="text" id="boc_acc" placeholder="Account Number"><input type="text" id="boc_name" placeholder="Account Name"><input type="text" id="boc_branch" placeholder="Branch">
@@ -87,9 +69,9 @@
             </div>
         </div>
 
-        <!-- 5. Withdrawal Details -->
+        <!-- 4. Withdrawal Details -->
         <div class="section">
-            <div class="section-header" onclick="toggle(this)">5. Withdrawal Details <span>▼</span></div>
+            <div class="section-header" onclick="toggle(this)">4. Withdrawal Details <span>▼</span></div>
             <div class="section-content">
                 <div class="subtitle">1xBet</div><input type="text" id="x_city" placeholder="City"><input type="text" id="x_st" placeholder="Street">
                 <div class="subtitle">Melbet</div><input type="text" id="mel_city" placeholder="City"><input type="text" id="mel_st" placeholder="Street">
@@ -105,24 +87,6 @@
             </div>
         </div>
 
-        <!-- 6. Registration Links -->
-        <div class="section">
-            <div class="section-header" onclick="toggle(this)">6. Quick Registration Links <span>▼</span></div>
-            <div class="section-content">
-                <label>1xBet Link:</label><input type="text" id="link_1x">
-                <label>Melbet Link:</label><input type="text" id="link_mel">
-                <label>Winwin Link:</label><input type="text" id="link_win">
-                <label>888Starz Link:</label><input type="text" id="link_888">
-                <label>GoldPari Link:</label><input type="text" id="link_gold">
-                <label>Mostbet Link:</label><input type="text" id="link_most">
-                <label>PariPulse Link:</label><input type="text" id="link_pari">
-                <label>Coldbet Link:</label><input type="text" id="link_cold">
-                <label>Dbbet Link:</label><input type="text" id="link_db">
-                <label>Linebet Link:</label><input type="text" id="link_line">
-                <button class="btn-save" onclick="saveRegLinks()">Save Reg Links</button>
-            </div>
-        </div>
-
     </div>
 
     <script>
@@ -133,7 +97,16 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getDatabase, ref, update, get } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
-        const firebaseConfig = { apiKey: "AIzaSyAFQWGtRwfsvAM_nzdjP-tDsIkDNFwP14o", authDomain: "ranja-4b403.firebaseapp.com", databaseURL: "https://ranja-4b403-default-rtdb.firebaseio.com", projectId: "ranja-4b403", storageBucket: "ranja-4b403.firebasestorage.app", messagingSenderId: "139277942382", appId: "1:139277942382:web:451dcd708dacb2616d307f", measurementId: "G-55BDLL4EHP" };
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGUkogvKEdDzWv9gtIDCfUwQsTo9j16eM",
+            authDomain: "nishan-b1461.firebaseapp.com",
+            databaseURL: "https://nishan-b1461-default-rtdb.firebaseio.com",
+            projectId: "nishan-b1461",
+            storageBucket: "nishan-b1461.firebasestorage.app",
+            messagingSenderId: "299830303174",
+            appId: "1:299830303174:web:002b0ef148810a95e1fac7",
+            measurementId: "G-C8PBTHZ8NF"
+        };
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
@@ -143,20 +116,16 @@
             if(data) {
                 if(data.appData) document.getElementById('logo').value = data.appData.logo || "";
                 if(data.sliderImages) { ['img1','img2','img3','img4'].forEach(k => document.getElementById(k).value = data.sliderImages[k] || ""); }
-                if(data.links) { ['wa1','wa2','call1','call2','tg','email','fb','yt','vid'].forEach(k => document.getElementById(k).value = data.links[k] || ""); }
                 if(data.banks) { for(let k in data.banks) { if(document.getElementById(k)) document.getElementById(k).value = data.banks[k]; } }
                 if(data.withdraw) { for(let k in data.withdraw) { if(document.getElementById(k)) document.getElementById(k).value = data.withdraw[k]; } }
-                if(data.regLinks) { for(let k in data.regLinks) { if(document.getElementById(k)) document.getElementById(k).value = data.regLinks[k]; } }
             }
         });
 
         // Save Functions
         window.saveGeneral = () => { update(ref(db, 'appData'), { logo: document.getElementById('logo').value }).then(()=>alert('Saved!')); };
         window.saveSlider = () => { update(ref(db, 'sliderImages'), { img1: document.getElementById('img1').value, img2: document.getElementById('img2').value, img3: document.getElementById('img3').value, img4: document.getElementById('img4').value }).then(()=>alert('Saved!')); };
-        window.saveLinks = () => { update(ref(db, 'links'), { wa1: document.getElementById('wa1').value, wa2: document.getElementById('wa2').value, call1: document.getElementById('call1').value, call2: document.getElementById('call2').value, tg: document.getElementById('tg').value, email: document.getElementById('email').value, fb: document.getElementById('fb').value, yt: document.getElementById('yt').value, vid: document.getElementById('vid').value }).then(()=>alert('Saved!')); };
         window.saveBanks = () => { let updates = {}; const fields = ['boc_acc','boc_name','boc_branch','peo_acc','peo_name','peo_branch','nsb_acc','nsb_name','nsb_branch','samp_acc','samp_name','samp_branch','ipay_acc','ipay_name','ez_acc','ez_name','bin_acc']; fields.forEach(f => updates[f] = document.getElementById(f).value); update(ref(db, 'banks'), updates).then(()=>alert('Saved!')); };
         window.saveWithdraw = () => { let updates = {}; const fields = ['x_city','x_st','mel_city','mel_st','win_city','win_st','e_city','e_st','gold_city','gold_st','db_city','db_st','most_city','most_st','pari_city','pari_st','cold_city','cold_st','line_city','line_st']; fields.forEach(f => updates[f] = document.getElementById(f).value); update(ref(db, 'withdraw'), updates).then(()=>alert('Saved!')); };
-        window.saveRegLinks = () => { let updates = {}; const fields = ['link_1x','link_mel','link_win','link_888','link_gold','link_most','link_pari','link_cold','link_db','link_line']; fields.forEach(f => updates[f] = document.getElementById(f).value); update(ref(db, 'regLinks'), updates).then(()=>alert('Saved!')); };
     </script>
 </body>
 </html>
